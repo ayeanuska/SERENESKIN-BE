@@ -14,16 +14,24 @@ export const insertNewUser = async (req, res, next) => {
 //insert user in db.
 const user = await CreateNewUser(req.body);
 
-
-
-
+ if (user?._id){
     //create an unique user activation link and send to their email
-
     res.json({
       status: "success",
       message: "TO DO",
+    }); 
+ }
+ 
+    res.json({
+      status: "error",  
+      message: "unable to create account. try again later  ",
     });
   } catch (error) {
-    next(error);
-  }
-};
+    if (error.message.includes(" duplicate key error collection")) {
+      error.message =
+        "This email is already registered. Please use another email."
+  error.statusCode = 200  ;
+  }  next(error);
+}
+}
+ 

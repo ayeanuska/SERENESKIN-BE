@@ -16,6 +16,7 @@ app.use(express.json); //parse json file from fe to req.body
 //apiEP
 
 import authRoute from "./src/routes/authRoute.js";
+import { errorHandler } from "./src/middleware/errorhandler.js";
 
 app.use("/api/v1/auth", authRoute);
 
@@ -25,6 +26,9 @@ app.get("/", (req, res) => {
     message: "Server is live",
   });
 });
+
+//error handler
+app.use(errorHandler)
 
 dbConnect()
   .then(() => {
