@@ -3,34 +3,34 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema(
   {
     fName: {
-      types: String,
+      type: String,
       required: true,
     },
     lName: {
-      types: String,
+      type: String,
       required: true,
     },
     role: {
-      types: String,
-      default: user,
+      type: String,
+      default: "user",
       required: true,
     },
 
     email: {
-      types: String,
+      type: String,
       required: true,
       unique: true,
       index: 1,
     },
     phone: {
-      types: String, // "if you reuire a number to start w 0 too"
+      types  : String, // "if you reuire a number to start w 0 too"
     },
     password: {
-      types: String,
+      type: String,
       required: true,
     },
     refreshJWT: {
-      types: String,
+      type: String,
     },
   },
   { timestamps: true }

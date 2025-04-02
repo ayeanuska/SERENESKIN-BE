@@ -1,6 +1,8 @@
-import UserSchema from "./UserSchema";
+import UserSchema from "./UserSchema.js";
 
-// inser new user(query)
+// insert new user(query)
 export const CreateNewUser = (userObj) => {
   return UserSchema(userObj).save();
 };
+
+
