@@ -1,3 +1,4 @@
+import { responseClient } from "../middleware/responseClient.js";
 import { CreateNewUser } from "../model/user/UserModel.js";
 import { hashPassword } from "../utils/bcrypt.js";
 
@@ -16,21 +17,17 @@ const user = await CreateNewUser(req.body);
 
  if (user?._id){
     //create an unique user activation link and send to their email
-    res.json({
-      status: "success",
-      message: "TO DO",
-    }); 
+    
+    const message="we have sent you an activtaion link to your email..plesase check your email to activate your account"
+    return responseClient({req,res,message})
  }
  
-    res.json({
-      status: "error",  
-      message: "unable to create account. try again later  ",
-    });
+   throw new Error("Unable to create an account. Please try again later.");
   } catch (error) {
     if (error.message.includes(" duplicate key error collection")) {
       error.message =
         "This email is already registered. Please use another email."
-  error.statusCode = 200  ;
+  error.statusCode = 400  ;
   }  next(error);
 }
 }

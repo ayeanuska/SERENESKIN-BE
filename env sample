@@ -1,0 +1,10 @@
+PORT= <your port>
+MONGO_URL = <your mongo url>
+NODE_ENV = <>development or production>
+
+JWT_SECRET=<your secret>
+JWT_EXPIRESIN=  <your expiresin>
+
+
+REFRESH_JWT_SECRET=<your secret>
+REFRESH_JWT_EXPIRESIN= <your expiresin>

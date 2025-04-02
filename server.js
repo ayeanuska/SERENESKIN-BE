@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 const app = express();
 const PORT = process.env.PORT || 9002;
 
@@ -17,18 +17,18 @@ app.use(express.json); //parse json file from fe to req.body
 
 import authRoute from "./src/routes/authRoute.js";
 import { errorHandler } from "./src/middleware/errorhandler.js";
+import { responseClient } from "./src/middleware/responseClient.js";
 
 app.use("/api/v1/auth", authRoute);
 
 // check server status
 app.get("/", (req, res) => {
-  res.json({
-    message: "Server is live",
-  });
+  const message = "server is running";
+  responseClient({req, res, message }); 
 });
 
 //error handler
-app.use(errorHandler)
+app.use(errorHandler) 
 
 dbConnect()
   .then(() => {
