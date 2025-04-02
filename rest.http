@@ -8,7 +8,7 @@ GET {{rootUrl}}
 
 ###Auth API
 
-###post new user
+###create new user
 POST {{rootUrl}}/api/v1/auth/register
 Content-Type:application/json
 
