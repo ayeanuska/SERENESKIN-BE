@@ -22,7 +22,7 @@ const user = await CreateNewUser(req.body);
     //we can use uuid to generate a unique token
     const session = await CreateNewSession({
       token: uuidv4(),
-      association: user.obj
+      association: user.email
     })
 if (session?._id){
   const url ="http//local:host:9002?sessionId="+session._id+"&t="+session.token
