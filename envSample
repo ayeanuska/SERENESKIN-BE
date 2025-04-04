@@ -1,0 +1,20 @@
+PORT= 
+MONGO_URL = 
+NODE_ENV =
+
+
+SMTP_HOST = 
+SMTP_PORT=
+SMTP_EMAIL= 
+SMTP_PASS=
+
+ROOT_URL=
+
+
+// /* 
+// JWT_SECRET=<your secret>
+// JWT_EXPIRESIN=  <your expiresin>
+
+
+// REFRESH_JWT_SECRET=<your secret>
+// REFRESH_JWT_EXPIRESIN= <your expiresin> */

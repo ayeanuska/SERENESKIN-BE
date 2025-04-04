@@ -5,8 +5,8 @@ export const createAccessJWt = async (payload)=>{
 
 //create token
 
-    const token =jwt.sign(payload, "secret", {expiresIn:"20min"})
-    //store in session table 
+    const token =jwt.sign(payload, process.env.JWT_SECRET, {expiresIn:"20min"})
+    //store in session table / db.
 
     const obj = {
         token,
@@ -15,8 +15,8 @@ export const createAccessJWt = async (payload)=>{
     }
 
 
-    const newSession = await CreateNewSession(obj),
-    return newSession?._id ? token : null,
+    const newSession = await CreateNewSession(obj);
+    return newSession?._id ? token : null;
 }
 
 //decode accessJWT
