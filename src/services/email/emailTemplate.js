@@ -4,7 +4,7 @@ return {
          //"bar@example.com, baz@example.com", // list of receivers
          to:email,
         subject: "Action required - Activate your new account ✔", // Subject line
-        text:`Hello ${name} follow the link to activate your account. url  `, // plain text body
+        text:`Hello ${name} follow the link to activate your account. ${url}  `, // plain text body
         html: `<p>Hello ${name} </p>
     <br/>
     <br/>
