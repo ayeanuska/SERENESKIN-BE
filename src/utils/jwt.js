@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { CreateNewSession } from '../model/session/SessionModel'
+import { updateUser } from '../model/user/UserModel'
 // generate accessJWT
 export const createAccessJWt = async (email)=>{
 
@@ -31,7 +32,14 @@ export const creteRefreshJwt = async (email)=>{
 
     // storing in user table 
    const user = await updateUser({email}, {refreshJWT})
-   return user?._id refreshJWT : null;
+   return user?._id ?  refreshJWT : null;
 }
 
 //decode refreshJWT
+
+export const getJwts= async()=>{
+    return{
+        accessJWT: await createAccessJWt(email),
+        refreshJWT:await creteRefreshJwt(email)
+    }
+} 
