@@ -13,9 +13,15 @@ POST {{rootUrl}}/api/v1/auth/register
 Content-Type:application/json
 
 {
-"fName":"Anuska",
+"fName":"Arzin",
 "lName":"Shrestha",
-"email":"anuska@gmail.com",
+"email":"arz@gmail.com",
 "password": "1234"
 }
  
+####login user
+POST {{rootUrl}}/api/v1/auth/login
+Content-Type:application/json
+
+{"email":"anu@gmail.com",
+"password": "1234"}

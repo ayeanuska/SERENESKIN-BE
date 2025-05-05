@@ -1,26 +1,22 @@
- export const responseClient =({req, res, message, statusCode =200}) => {
-
-
-    //success response
-req.success = ()=>{
+export const responseClient = ({ req, res, message, statusCode = 200 }) => {
+  //success response
+  req.success = () => {
     return res.status(statusCode).json({
-        status: "success",
- message,
-})
-}
+      status: "success",
+      message,
+    });
+  };
 
-
-    //Error response 
-req.error=()=>{
+  //Error response
+  req.error = () => {
     return res.status(statusCode).json({
-        status: "error", 
-        message, 
-    })
-}
-if (statusCode >=200 && statusCode < 300) {
-    req.success()
-}else{
-        return req.error()
-    }
-
- }  
+      status: "error",
+      message,
+    });
+  };
+  if (statusCode >= 200 && statusCode < 300) {
+    req.success();
+  } else {
+    return req.error();
+  }
+};

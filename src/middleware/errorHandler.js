@@ -1,10 +1,11 @@
-import e from "cors"
+import e from "cors";
 
- export const errorHandler = (error, req, res, next) => { 
+export const errorHandler = (error, req, res, next) => {
+  const StatusCode = error.statusCode || 500;
+  console.log();
 
-const StatusCode = error.statusCode || 500;
-res.status(StatusCode).json({
-  status: "error",
-  message: error.message,
-  
- })} 
+  res.status(StatusCode).json({
+    status: "error",
+    message: error.message,
+  });
+};

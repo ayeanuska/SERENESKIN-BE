@@ -1,12 +1,15 @@
-// started at 16
+//
 
 import mongoose from "mongoose";
 
 export const dbConnect = async () => {
-  if (!process.env.MONGO_URL) {
-    throw new Error("provide MONGO_URl connection string");
+  const res = mongoose.connect(`${process.env.MONGO_URL}`);
+
+  if (res) {
+    console.log("MongoDB is connected");
+  } else {
+    console.log("MongoDB connection failed");
   }
-  return mongoose.connect(process.env.MONGO_URL);
 };
 
 // export const dbConnect = async () => {
